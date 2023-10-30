@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2023 at 01:52 PM
+-- Generation Time: Oct 30, 2023 at 08:12 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -20,6 +20,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_portal_berita`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `informasi`
+--
+
+CREATE TABLE `informasi` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `deskripsi` varchar(255) NOT NULL,
+  `gambar` text NOT NULL,
+  `tanggal` date NOT NULL,
+  `isi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -44,11 +59,18 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `nama`, `email`, `noHp`, `password`, `passwordHid`, `gambar`, `level`) VALUES
 (1, 'admin', 'admin@gmail.com', '081265111198', '21232f297a57a5a743894a0e4a801fc3', 'admin', '241020230955171000009022.jpg', '1'),
-(2, 'bejo', 'bejo@gmail.com', '081265111198', 'd4c01b1d3471a1b41ad485918d2298cb', 'bejo', 'no-image.png', '2');
+(2, 'bejo', 'bejo@gmail.com', '081265111198', 'd4c01b1d3471a1b41ad485918d2298cb', 'bejo', 'no-image.png', '2'),
+(3, 'riky', 'rikyyahdin@gmail.com', '081265111198', 'ae395f1fbe3bf3ff863cba27b3f44271', 'adaaja', 'no-image.png', '2');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `informasi`
+--
+ALTER TABLE `informasi`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
@@ -61,10 +83,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `informasi`
+--
+ALTER TABLE `informasi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
