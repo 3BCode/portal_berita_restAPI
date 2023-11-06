@@ -6,7 +6,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
  $judul = $_POST['judul'];
  $deskripsi = $_POST['deskripsi'];
- $tanggal = $_POST['tanggal'];
  $isi = $_POST['isi'];
  $informasiid = $_POST['informasiid'];
 
@@ -18,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   move_uploaded_file($_FILES['gambar']['tmp_name'], $imagePath);
  }
 
- $insert = "UPDATE informasi SET judul='$judul', deskripsi='$deskripsi', gambar='$gambar', tanggal='$tanggal', isi='$isi' WHERE id='$informasiid'";
+ $insert = "UPDATE informasi SET judul='$judul', deskripsi='$deskripsi', gambar='$gambar', isi='$isi' WHERE id='$informasiid'";
 
  if (mysqli_query($con, $insert)) {
   # code...

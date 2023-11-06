@@ -7,14 +7,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
  $response = array();
  $judul = $_POST['judul'];
  $deskripsi = $_POST['deskripsi'];
- $tanggal = $_POST['tanggal'];
  $isi = $_POST['isi'];
 
  $gambar = date('dmYHis') . str_replace(" ", "", basename($_FILES['gambar']['name']));
  $imagePath = "../informasi/" . $gambar;
  move_uploaded_file($_FILES['gambar']['tmp_name'], $imagePath);
 
- $insert = "INSERT INTO informasi VALUE(NULL, '$judul', '$deskripsi', '$gambar', '$tanggal', '$isi')";
+ $insert = "INSERT INTO informasi VALUE(NULL, '$judul', '$deskripsi', '$gambar', NOW(), '$isi')";
 
  if (mysqli_query($con, $insert)) {
   # code...
